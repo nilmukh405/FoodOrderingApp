@@ -2,14 +2,14 @@ import { View, Text, StatusBar, TouchableOpacity, Image, ScrollView } from 'reac
 import React, { useMemo, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { removeFromBasket, selectBasketItems, selectBasketTotal } from '../slices/basketSlice';
-import { selectResturant } from '../slices/resturantSlice';
+import { selectRestaurant } from '../slices/restaurantSlice';
 import { useNavigation } from '@react-navigation/native';
 import { urlFor } from '../sanity';
 import * as Icon from "react-native-feather";
 import { themeColors } from '../theme';
 
 export default function BasketScreen() {
-    const resturant = useSelector(selectResturant); 
+    const restaurant = useSelector(selectRestaurant); 
     const [groupedItems, setGroupedItems] = useState([])
     const basketItems = useSelector(selectBasketItems);
     const basketTotal = useSelector(selectBasketTotal);
@@ -43,7 +43,7 @@ export default function BasketScreen() {
         </TouchableOpacity>
         <View>
             <Text className="text-center font-bold text-xl">Your cart</Text>
-            <Text className="text-center text-gray-500">{resturant.title}</Text>
+            <Text className="text-center text-gray-500">{restaurant.title}</Text>
         </View>
         
       </View>
