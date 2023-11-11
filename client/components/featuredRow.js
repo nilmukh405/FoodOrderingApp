@@ -1,22 +1,22 @@
 import { View, Text, ScrollView, TouchableOpacity } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { ArrowRightIcon } from 'react-native-heroicons/outline'
-import ResturantCard from './resturantCard'
-import { getFeaturedResturantById } from '../api'
+import RestaurantCard from './restaurantCard'
+import { getFeaturedRestaurantById } from '../api'
 import * as Icon from "react-native-feather";
 import { themeColors } from '../theme'
 
-export default function FeatureRow({id, title, description, resturants}) {
+export default function FeatureRow({id, title, description, restaurants}) {
 
-  // const [resturants, setResturants] = useState([]);
+  // const [restaurants, setRestaurants] = useState([]);
 
   useEffect(() => {
-    // getFeaturedResturantById(id).then(data=>{
+    // getFeaturedRestaurantById(id).then(data=>{
     //   // console.log('got data: ',data);
-    //   setResturants(data?.resturants);
+    //   setRestaurants(data?.restaurants);
     // })
   }, [id])
-  // console.log(resturants);
+  // console.log(restaurants);
   
   return (
     <View>
@@ -44,20 +44,20 @@ export default function FeatureRow({id, title, description, resturants}) {
         className="overflow-visible py-5"
        >
         {
-          resturants.map(resturant=>{
+          restaurants.map(restaurant=>{
             return (
-                <ResturantCard
-                  key={resturant._id}
-                  id={resturant._id}
-                  imgUrl={resturant.image}
-                  title={resturant.name}
-                  rating={resturant.rating}
-                  type={resturant.type?.name}
+                <RestaurantCard
+                  key={restaurant._id}
+                  id={restaurant._id}
+                  imgUrl={restaurant.image}
+                  title={restaurant.name}
+                  rating={restaurant.rating}
+                  type={restaurant.type?.name}
                   address="123 main street"
-                  description={resturant.description}
-                  dishes={resturant.dishes}
-                  lng={resturant.lng}
-                  lat={resturant.lat}
+                  description={restaurant.description}
+                  dishes={restaurant.dishes}
+                  lng={restaurant.lng}
+                  lat={restaurant.lat}
 
               />    
             )
