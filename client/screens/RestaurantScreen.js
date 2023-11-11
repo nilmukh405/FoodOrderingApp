@@ -5,14 +5,14 @@ import { urlFor } from '../sanity';
 import DishRow from '../components/dishRow';
 import BasketIcon from '../components/basketIcon';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectResturant, setResturant } from '../slices/resturantSlice';
+import { selectRestaurant, setRestaurant } from '../slices/restaurantSlice';
 import { emptyBasket } from '../slices/basketSlice';
 import * as Icon from "react-native-feather";
 import { themeColors } from '../theme';
 
-export default function ResturantScreen() {
+export default function RestaurantScreen() {
     const navigation = useNavigation();
-    const resturant = useSelector(selectResturant);
+    const restaurant = useSelector(selectRestaurant);
     let dispatch = useDispatch();
     const {params: {
         id, 
@@ -30,10 +30,10 @@ export default function ResturantScreen() {
         navigation.setOptions({headerShown: false})
     },[])
     useEffect(()=>{
-        if(resturant && resturant.id!=id){
+        if(restaurant && restaurant.id!=id){
             dispatch(emptyBasket());
         }
-        dispatch(setResturant({
+        dispatch(setRestaurant({
             id, 
             title,
             imgUrl,
