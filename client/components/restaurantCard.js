@@ -8,7 +8,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { themeColors } from '../theme';
 import * as Icon from "react-native-feather";
 
-export default function ResturantCard({
+export default function RestaurantCard({
     id, 
     title,
     imgUrl,
@@ -25,7 +25,7 @@ export default function ResturantCard({
   const navigation = useNavigation();
   return (
     <TouchableWithoutFeedback onPress={()=>{
-      navigation.navigate('Resturant', {
+      navigation.navigate('Restaurant', {
         id, 
         title,
         imgUrl,
