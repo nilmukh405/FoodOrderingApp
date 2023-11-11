@@ -2,7 +2,7 @@ import { View, Text, StatusBar, TouchableOpacity, Image, SafeAreaView } from 're
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { useDispatch, useSelector } from 'react-redux';
-import { selectResturant } from '../slices/resturantSlice';
+import { selectRestaurant } from '../slices/restaurantSlice';
 import MapView, {Marker} from 'react-native-maps';
 import { themeColors } from '../theme';
 import * as Icon from "react-native-feather";
@@ -11,7 +11,7 @@ import { emptyBasket } from '../slices/basketSlice';
 
 export default function DeliveryScreen() {
     const navigation = useNavigation();
-    const resturant = useSelector(selectResturant);
+    const restaurant = useSelector(selectRestaurant);
     const dispatch = useDispatch();
     const handleCancel = ()=>{
       dispatch(emptyBasket());
@@ -21,8 +21,8 @@ export default function DeliveryScreen() {
     <View className="flex-1" >
         <MapView
         initialRegion={{
-            latitude: resturant.lat,
-            longitude: resturant.lng,
+            latitude: restaurant.lat,
+            longitude: restaurant.lng,
             latitudeDelta: 0.01,
             longitudeDelta: 0.01,
           }} 
@@ -31,11 +31,11 @@ export default function DeliveryScreen() {
         >
             <Marker 
                 coordinate={{
-                    latitude: resturant.lat,
-                    longitude: resturant.lng
+                    latitude: restaurant.lat,
+                    longitude: restaurant.lng
                 }} 
-                title={resturant.title}
-                description={resturant.description}
+                title={restaurant.title}
+                description={restaurant.description}
                 pinColor={themeColors.bgColor(1)}
             />
         </MapView>
