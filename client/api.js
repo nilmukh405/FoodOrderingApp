@@ -1,11 +1,11 @@
 import sanityClient from './sanity';
 let sanityQuery = (query, params)=> sanityClient.fetch(query, params);
 
-export const getFeaturedResturants = ()=>{
+export const getFeaturedRestaurants = ()=>{
     return sanityQuery(`
         *[_type == 'featured'] {
             ...,
-            resturants[]->{
+            restaurants[]->{
             ...,
             type->{
                 name
@@ -22,11 +22,11 @@ export const getCategories = ()=>{
     `);
 }
 
-export const getFeaturedResturantById = id=>{
+export const getFeaturedRestaurantById = id=>{
     return sanityQuery(`
         *[_type == 'featured' && _id == $id] {
             ...,
-            resturants[]->{
+            restaurants[]->{
                 ...,
                 dishes[]->,
                 type->{
