@@ -3,7 +3,7 @@ import React, { useMemo, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectBasketItems, selectBasketTotal } from '../slices/basketSlice'
 import { useNavigation } from '@react-navigation/native';
-import { selectResturant } from '../slices/resturantSlice';
+import { selectRestaurant } from '../slices/restaurantSlice';
 import { themeColors } from '../theme';
 
 export default function BasketIcon() {
